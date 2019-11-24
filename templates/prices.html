@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Prices
+
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+{% if crypto %}
+
+{% if crypto.Response %}
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Not Found!</h4>
+    <p>Aww snap, it looks like no such coin existed</p>
+    <hr>
+    <p class="mb-0">Try Again, Goto Search Box in Navigation Bar and type crypto coin Sybmol like BTC etc. You can also search for multiple coins separated with comman like BTC, ETH</p>
+</div>
+{% else %}
+
+
+<table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">24h High</th>
+                <th scope="col">24h Low</th>
+                <th scope="col">Market Cap</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in crypto.DISPLAY.items %}
+            <tr>
+                <th>{{ key }}</th>
+                <td>{{ value.USD.PRICE }}</td>
+                <td>{{ value.USD.HIGHDAY }}</td>
+                <td>{{ value.USD.LOWDAY }}</td>
+                <td>{{ value.USD.MKTCAP }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% else %}
+
+
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Nothing Here!</h4>
+        <p>Aww snap, it looks like you did not search for anything</p>
+        <hr>
+        <p class="mb-0">Goto Search Box in Navigation Bar and type crypto coin Sybmol like BTC etc. You can also search for multiple coins separated with comman like BTC, ETH</p>
+    </div>
+            
+{% endif %}
+</div>
+{% endblock %}

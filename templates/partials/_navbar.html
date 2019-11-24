@@ -1,0 +1,7 @@
+<nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">CryptoApp</a>
+    <form class="form-inline" method="POST" action="{% url 'prices' %}">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name="qoute" placeholder="Lookup Crypto" autocomplete="off">
+        </form>
+</nav>
