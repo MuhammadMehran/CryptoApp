@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Login
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-3 col-sm-5 col-md-offset-4  text-center">
+            <h1>Welcome!!!</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" autocomplete="off" placeholder="Enter UserName" name="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" autocomplete="off" placeholder="Enter Password" name="password">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="form-control btn btn-success" name="submit">
+                </div>
+            </form>
+            <a class="btn" href="{% url 'social:begin' 'github' %}"><i class="fa fa-github" style="font-size:50px" aria-hidden="true"></i></a>
+            <a class="btn" href="{% url 'social:begin' 'twitter' %}"><i class="fa fa-twitter" style="font-size:50px" aria-hidden="true"></i></a>
+            <a class="btn" href="{% url 'social:begin' 'google' %}"><i class="fa fa-google" style="font-size:50px" aria-hidden="true"></i></a>
+            <a class="btn" href="{% url 'social:begin' 'facebook' %}"><i class="fa fa-facebook" style="font-size:50px" aria-hidden="true"></i></a>
+            <a class="btn" href="{% url 'social:begin' 'instagram' %}"><i class="fa fa-instagram" style="font-size:50px" aria-hidden="true"></i></a>            
+        
+    
+</div>
+{% endblock %}
